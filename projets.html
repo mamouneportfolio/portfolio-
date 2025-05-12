@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mes Projets</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      padding: 2rem 0 1rem;
+    }
+    .bd-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .carousel {
+      position: relative;
+      overflow: hidden;
+    }
+    .carousel img {
+      width: 100%;
+      display: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .card__content {
+      padding: 1rem;
+    }
+    .card__header {
+      margin-top: 0;
+    }
+    .card__button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .carousel-buttons {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    .carousel-buttons button {
+      margin: 0 5px;
+      padding: 0.2rem 0.5rem;
+      border: none;
+      background-color: #eee;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="section projets">
+    <h2 class="section-title">Mes Projets</h2>
+    <div class="bd-grid">
+
+      <!-- Projet 1 -->
+      <div class="card">
+        <div class="carousel" data-project="1">
+          <img src="bookhub_img1.png" class="active" alt="Projet 1 - Image 1">
+          <img src="bookhub_img2.png" alt="Projet 1 - Image 2">
+          <img src="bookhub_img3.png" alt="Projet 1 - Image 3">
+        </div>
+        <div class="carousel-buttons">
+          <button onclick="prevImage(1)">◀</button>
+          <button onclick="nextImage(1)">▶</button>
+        </div>
+        <div class="card__content">
+          <h3 class="card__header">BOOKHUB</h3>
+          <p class="card__text">.Réalisation d’un site e-commerce nommé BookHub, permettant la consultation et l’achat de livres, avec un système de connexion utilisateur développé en PHP et MySQL.</p>
+          
+        </div>
+      </div>
+
+      <!-- Projet 2 -->
+      <div class="card">
+        <div class="carousel" data-project="2">
+          <img src="Capture1.PNG" class="active" alt="Projet 2 - Image 1">
+          <img src="Capture2.PNG" alt="Projet 2 - Image 2">
+           <img src="Capture3.PNG" alt="Projet 2 - Image 2">
+        </div>
+        <div class="carousel-buttons">
+          <button onclick="prevImage(2)">◀</button>
+          <button onclick="nextImage(2)">▶</button>
+        </div>
+        <div class="card__content">
+          <h3 class="card__header">BOOKhubconnexion</h3>
+          <p class="card__text">une application desktop en C# avec Windows Forms.</p>
+          
+        </div>
+      </div>
+
+      <!-- Projet 3 -->
+      <div class="card">
+        <div class="carousel" data-project="3">
+          <img src="captureadmin1.PNG" class="active" alt="Projet 3 - Image 1">
+          <img src="captureadmin2.PNG" alt="Projet 3 - Image 2">
+        </div>
+        <div class="carousel-buttons">
+          <button onclick="prevImage(3)">◀</button>
+          <button onclick="nextImage(3)">▶</button>
+        </div>
+        <div class="card__content">
+          <h3 class="card__header">Dashboard_admin</h3>
+          <p class="card__text">une interface administrateur permettant de gérer les données du site, avec les fonctionnalités de modification, suppression et ajout d'éléments (produits, utilisateurs, etc.)..</p>
+          
+        </div>
+      </div>
+
+      <!-- Projet 4 -->
+      <div class="card">
+        <div class="carousel" data-project="4">
+          <img src="eventlab1.PNG" class="active" alt="Projet 4 - Image 1">
+          <img src="eventlab2.png" alt="Projet 4 - Image 2">
+        </div>
+        <div class="carousel-buttons">
+          <button onclick="prevImage(4)">◀</button>
+          <button onclick="nextImage(4)">▶</button>
+        </div>
+        <div class="card__content">
+          <h3 class="card__header">eventlab</h3>
+          <p class="card__text">Conception d’une application web modulaire basée sur la programmation orientée objet en PHP, déployée dans un environnement conteneurisé avec Docker</p>
+          
+        </div>
+      </div>
+
+      <!-- Projet 5 -->
+      <div class="card">
+        <div class="carousel" data-project="5">
+          <img src="projetpicasso.png" class="active" alt="Projet 5 - Image 1">
+          <img src="projetpicasso2.PNG" alt="Projet 5 - Image 2">
+        </div>
+        <div class="carousel-buttons">
+          <button onclick="prevImage(5)">◀</button>
+          <button onclick="nextImage(5)">▶</button>
+        </div>
+        <div class="card__content">
+          <h3 class="card__header">CV Picasso</h3>
+          <p class="card__text">une application mobile nommée CV Picasso en Java avec Android Studio, permettant de créer un CV personnalisé via un formulaire de saisie..</p>
+          
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function nextImage(projectId) {
+      const carousel = document.querySelector(`.carousel[data-project="${projectId}"]`);
+      const images = carousel.querySelectorAll('img');
+      let index = Array.from(images).findIndex(img => img.classList.contains('active'));
+      images[index].classList.remove('active');
+      index = (index + 1) % images.length;
+      images[index].classList.add('active');
+    }
+
+    function prevImage(projectId) {
+      const carousel = document.querySelector(`.carousel[data-project="${projectId}"]`);
+      const images = carousel.querySelectorAll('img');
+      let index = Array.from(images).findIndex(img => img.classList.contains('active'));
+      images[index].classList.remove('active');
+      index = (index - 1 + images.length) % images.length;
+      images[index].classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
